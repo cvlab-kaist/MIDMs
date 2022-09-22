@@ -1,0 +1,333 @@
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>MIDMs: Matching Interleaved Diffusion Models for Exemplar-based Image Translation</title>
+	<meta property="og:image" content="https://KU-CVLAB.github.io/MIDMs"/>
+	<meta property="og:title" content=MIDMs: Matching Interleaved Diffusion Models for Exemplar-based Image Translation" />
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">MIDMs: Matching Interleaved Diffusion Models <br>for Exemplar-based Image Translation</span>
+		<table align=center width=1100px>
+			<table align=center width=1100px>
+				<tr>
+					<td align=center width=180px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=orJRvmEAAAAJ&hl=ko&oi=sra">Junyoung Seo<sup>*1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=220px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=O6B36wwAAAAJ&hl=ko&oi=sra">Gyuseong Lee<sup>*1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://seokju-cho.github.io/">Seokju Cho<sup>1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=180px>
+						<center>
+							<span style="font-size:24px"><a href="https://lee-jiyoung.github.io/">Jiyoung Lee<sup>2</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=250px>
+						<center>
+							<span style="font-size:24px"><a href="https://cvlab.korea.ac.kr/members">Seungryong Kim<sup>1</sup></a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+						
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px">Korea University<sup>1</sup></a></span>
+						</center>
+					</td>
+			
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px">NAVER AI LAB<sup>2</sup></a></span>
+						</center>
+					</td>
+
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px">* Equal contribution</a></span>
+						</center>
+					</td>
+
+
+				</tr>
+			</table>
+						
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://arxiv.org/'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href="https://github.com/KU-CVLAB/MIDMs/">[Code]</a></span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+	<br>
+	
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=420px>
+					<center>
+						<img class="round" style="width:900px" src="./resources/midm_architecture.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table align=center width=850px>
+			<tr>
+				<td>
+					MIDMs firstly propose to use diffusion models for exemplar-based image translation tasks, to address the limitations of existing methods. 
+					We present a diffusion-based matching-and-generation framework that interleaves cross-domain matching and diffusion steps to modify the diffusion trajectory toward a more faithful image translation
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				We present a novel method for exemplar-based image translation, called matching interleaved diffusion models (MIDMs). Most existing methods for this task were formulated as GAN-based matching-then-generation 
+				framework. However, in this framework, matching errors induced by the difficulty of semantic matching across cross-domain, e.g., sketch and photo, can be easily propagated to the generation step, which in turn 
+				leads to the degenerated results. Motivated by the recent success of diffusion models, overcoming the shortcomings of GANs, we incorporate the diffusion models to overcome these limitations. Specifically, 
+				we formulate a diffusion-based matching-and-generation framework that interleaves cross-domain matching and diffusion steps in the latent space by iteratively feeding the intermediate warp into the 
+				noising process and denoising it to generate a translated image. In addition, to improve the reliability of diffusion process, we design confidence-aware process using cycle-consistency 
+				to consider only confident regions during translation. Experimental results show that our MIDMs generate more plausible images than state-of-the-art methods.
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<!-- <center><h1> Network Configuration </h1></center>
+	
+	<table align=center width=600px>
+		<tr>
+			<td align=center width=600px>
+				<center>
+					<td><img class="round" style="width:1100px" src="./resources/midm_architecture.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					We propose a language-driven Image-to-Image translation framework with candidate "dataset-level" domain annotations, which is more practical than fully-unsupervised methods in the real-world.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<hr> -->
+
+
+	
+	<center><h1> Qualitative Results </h1></center>
+	
+	<h3> Celeb-A HQ </h3>
+	<table align=center width=600px>
+		<tr>
+			<td align=center width=600px>
+				<center>
+					<td><img class="round" style="width:800px" src="./resources/qual_celeb.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	
+	<h3> LSUN-Churches </h3>
+	<table align=center width=600px>
+		<tr>
+			<td align=center width=600px>
+				<center>
+					<td><img class="round" style="width:800px" src="./resources/qual_lsun.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+
+	
+	<br>
+	<hr>
+	
+	<table align=center width=450px>
+		<center><h1>Paper and Supplementary Material</h1></center>
+		<tr>
+			<td><a href="https://arxiv.org/"><img class="layered-paper-big" style="height:175px" src="./resources/paper_midm.png"/></a></td>
+			<td><span style="font-size:14pt">J. Seo*, G. Lee*, S. Cho, <br>J. Lee, S. Kim<br>
+				<b>MIDMs: Matching Interleaved Diffusion Models for Exemplar-based Image Translation.</b><br>
+
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="https://arxiv.org/">ArXiv</a><br>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
