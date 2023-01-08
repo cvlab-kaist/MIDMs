@@ -16,8 +16,6 @@ For more information, check out the paper on [Arxiv](https://arxiv.org/abs/2209.
 
 ## Preparation
 
----
-
 ### Environmental Settings
 
 Clone the Synchronized-BatchNorm-PyTorch repository.
@@ -63,8 +61,6 @@ For the datasets, we used the train and validation set provided by [CoCosNet](ht
 
 ## Inference
 
----
-
 Prepare the validation dataset as speicified above, and run inference.py, e.g.,
 
 ```bash
@@ -75,7 +71,6 @@ where `pick` is index of condition image (e.g., sketch). If you want to evaluate
 
 ## Training
 
----
 Before starting fine-tuning for MIDMs, we first pretrain LDM on the desired dataset following [here](https://github.com/CompVis/latent-diffusion/), or alternatively, the pretrained weights can be obtained from the [model zoo](https://github.com/CompVis/latent-diffusion#model-zoo).
 
 Additionally, pretrained VGG model is required. Please download from the `Training` section of [CoCosNet repository](https://github.com/microsoft/CoCosNet), and move it to `models/`. We used 8 NVIDIA RTX 3090s for finetuning, and it took an average of 5-12 hours per dataset.
@@ -97,13 +92,9 @@ We discovered that the number of warm-up iterations and the number of training e
 
 ## Acknowledgement
 
----
-
 This code implementation is heavily borrowed from the official implementation of [LDM](https://github.com/CompVis/latent-diffusion) and [CoCosNet](https://github.com/microsoft/CoCosNet). We are deeply grateful for all of the projects.
 
 ## Bibtex
-
----
 
 ```bibtex
 @article{seo2022midms,
